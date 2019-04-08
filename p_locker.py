@@ -10,6 +10,8 @@ def create_user(names,password):
 	return new_user
 
 
+
+
 def main():
 
     print("************PASSWORD LOCKER**************")
@@ -41,7 +43,17 @@ def main():
                     if who.names == names and who.password == password:
                         print("logged in successfully")
                         print("welcome " + who.names + "\n Please choose an option below")
-                        print('1 store existing credentials \n 2 Create new credentials \n X to Exit')
+                        while True:
+                            print('1 store existing credentials \n2 Create new credentials \nX to Exit')
+                            print("")
+                            code = input("Enter code to continue")
+                            if code == "X":
+                                break
+                            elif code == "1":
+                                account = input("Enter account name to store")
+                                account_password = ("Enter your " + account + "\'s password")
+
+
 
                     else:
                         print("wrong login credentials")
