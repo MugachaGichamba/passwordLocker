@@ -3,6 +3,7 @@ from credentials import Credentials
 import random
 import string
 
+
 def create_user(names, password):
     """
 
@@ -32,13 +33,16 @@ def main():
     """
     loop to continually ask for input until it breaks
     """
+
     while True:
         print(' ')
         print("*" * 70)
         print('PLease choose an option: \n 1 to Create an Account \n 2 to Log In \n X to Exit')
         code = input('Enter a choice: ').upper().strip()
+
         if code == 'X':
             break
+
         elif code == "1":
             print("Please create your account below")
             names = input("Enter your names seperated by a space")
@@ -54,9 +58,11 @@ def main():
             for who in User.users:
                 if names in who.names:
                     password = input("please enter your password to log in")
+
                     if who.names == names and who.password == password:
                         print("logged in successfully")
                         print("welcome " + who.names + "\n Please choose an option below")
+
                         while True:
                             print('1 store existing credentials \n2 Create new account credentials '
                                   '\n3 View your Account Credentials \n4 Delete credentials \nX to Exit')
@@ -64,11 +70,13 @@ def main():
                             code = input("Enter code to continue")
                             if code == "X":
                                 break
+
                             elif code == "1":
                                 account = input("Enter account name to store")
                                 account_password = input("Enter your " + account + "\'s password")
                                 Credentials.save_credential(create_credentials(who.names, account, account_password))
                                 print(f"Successfully saved {account} to credentials database")
+
                             elif code == "2":
                                 new_account = input("Enter new account name to register:")
                                 new_password = input("enter new account password:\n"
@@ -83,9 +91,11 @@ def main():
                                     Credentials.save_credential(
                                         create_credentials(who.names, new_account, new_password))
                                     print(f"Successfully saved {new_account} to credentials database")
+
                             elif code == "3":
                                 count = 1
-                                print(f"Here are {who.names} credentials" )
+                                print(f"Here are {who.names} credentials")
+
                                 for cred in Credentials.credentials:
                                     print(cred.__dict__)
                                     print(count, cred.account, cred.password)
@@ -106,6 +116,7 @@ def main():
 
         else:
             print("Please enter a valid input")
+
 
 """
 to run this as the main script
