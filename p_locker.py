@@ -31,7 +31,18 @@ def main():
             print("successfuly created an account for " + names + " password: " + password)
 
         elif code == "2":
-            print("Log in")
+            names = input("please enter your names as you registered")
+
+            for who in User.users:
+                if names in who.names:
+                    password = input("please enter your password to log in")
+                    if who.names == names and who.password == password:
+                        print("logged in")
+                    else:
+                        print("wrong login credentials")
+                else:
+                    print("enter a valid name")
+
         else:
             print("Please enter a valid input")
 
