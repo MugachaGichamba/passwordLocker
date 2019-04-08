@@ -5,7 +5,7 @@ class Credentials:
         """
         constructor for credential class
         :param username:
-        :param credential_name:
+        :param username:
         :param password:
         """
         self.username = username
@@ -16,5 +16,5 @@ class Credentials:
         """
         save a newly created user
         """
-        Credentials.credentials.append(self);
+        Credentials.credentials.append(self)
 

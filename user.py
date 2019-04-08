@@ -18,4 +18,4 @@ class User:
         """
         save a newly created user
         """
-        User.users.append(self);
+        User.users.append(self)
