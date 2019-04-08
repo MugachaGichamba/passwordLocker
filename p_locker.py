@@ -1,5 +1,5 @@
 from user import User
-
+from credentials import Credentials
 
 def create_user(names,password):
 
@@ -9,7 +9,9 @@ def create_user(names,password):
 	new_user = User(names,password)
 	return new_user
 
-
+def create_credentials(username, account, password):
+    new_credential = Credentials(username, account, password)
+    return new_credential
 
 
 def main():
