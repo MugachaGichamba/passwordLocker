@@ -32,12 +32,17 @@ def main():
 
         elif code == "2":
             names = input("please enter your names as you registered")
-
+            """
+            check whether user exists and verify their password
+            """
             for who in User.users:
                 if names in who.names:
                     password = input("please enter your password to log in")
                     if who.names == names and who.password == password:
-                        print("logged in")
+                        print("logged in successfully")
+                        print("welcome " + who.names + "\n Please choose an option below")
+                        print('1 store existing credentials \n 2 Create new credentials \n X to Exit')
+
                     else:
                         print("wrong login credentials")
                 else:
