@@ -51,7 +51,8 @@ def main():
                         print("logged in successfully")
                         print("welcome " + who.names + "\n Please choose an option below")
                         while True:
-                            print('1 store existing credentials \n2 Create new account credentials \nX to Exit')
+                            print('1 store existing credentials \n2 Create new account credentials '
+                                  '\n3 View your Account Credentials \nX to Exit')
                             print("")
                             code = input("Enter code to continue")
                             if code == "X":
@@ -75,6 +76,12 @@ def main():
                                     Credentials.save_credential(
                                         create_credentials(who.names, new_account, new_password))
                                     print(f"Successfully saved {new_account} to credentials database")
+                            elif code == "3":
+                                count = 1
+                                for cred in Credentials.credentials:
+                                    print(count, cred.account, cred.password)
+                                    count += 1
+                                print("\n\n")
                     else:
                         print("wrong login credentials")
                 else:
