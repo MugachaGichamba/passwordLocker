@@ -1,6 +1,7 @@
 from user import User
 from credentials import Credentials
-
+import random
+import string
 
 def create_user(names, password):
     """
@@ -64,6 +65,9 @@ def main():
                                 new_account = input("Enter new account name to register:")
                                 new_password = input("enter new account password:\n"
                                                      "LEAVE BLANK IF YOU WANT THE SYSTEM TO GENERATE A PASSWORD FOR YOU")
+                                if new_password == "":
+                                    print("generating password.......")
+                                    new_password = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 
                     else:
                         print("wrong login credentials")
