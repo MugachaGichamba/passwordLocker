@@ -52,7 +52,7 @@ def main():
                         print("welcome " + who.names + "\n Please choose an option below")
                         while True:
                             print('1 store existing credentials \n2 Create new account credentials '
-                                  '\n3 View your Account Credentials \nX to Exit')
+                                  '\n3 View your Account Credentials \n4 Delete credentials \nX to Exit')
                             print("")
                             code = input("Enter code to continue")
                             if code == "X":
@@ -78,10 +78,20 @@ def main():
                                     print(f"Successfully saved {new_account} to credentials database")
                             elif code == "3":
                                 count = 1
+                                print(f"Here are {who.names} credentials" )
                                 for cred in Credentials.credentials:
+                                    print(cred.__dict__)
                                     print(count, cred.account, cred.password)
                                     count += 1
-                                print("\n\n")
+                                print("\n")
+
+                            elif code == "4":
+                                to_delete = input("Please Enter name of account site to delete")
+                                try:
+                                    for cred in Credentials.credentials:
+                                        Credentials.credentials.remove(cred.__dict__)
+                                except ValueError:
+                                    print("account not in database")
                     else:
                         print("wrong login credentials")
                 else:
