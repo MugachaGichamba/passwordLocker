@@ -68,7 +68,13 @@ def main():
                                 if new_password == "":
                                     print("generating password.......")
                                     new_password = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
-
+                                    Credentials.save_credential(
+                                        create_credentials(who.names, new_account, new_password))
+                                    print(f"Successfully saved {new_account} to credentials database")
+                                else:
+                                    Credentials.save_credential(
+                                        create_credentials(who.names, new_account, new_password))
+                                    print(f"Successfully saved {new_account} to credentials database")
                     else:
                         print("wrong login credentials")
                 else:
