@@ -97,7 +97,6 @@ def main():
                                 print(f"Here are {who.names} credentials")
 
                                 for cred in Credentials.credentials:
-                                    print(cred.__dict__)
                                     print(count, cred.account, cred.password)
                                     count += 1
                                 print("\n")
