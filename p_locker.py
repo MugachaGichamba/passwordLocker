@@ -1,13 +1,18 @@
 from user import User
 from credentials import Credentials
 
-def create_user(names,password):
 
-	'''
-	Function to create a new user account
-	'''
-	new_user = User(names,password)
-	return new_user
+def create_user(names, password):
+    """
+
+    Function to create a new user account
+    :param names:
+    :param password:
+    :return:
+    """
+    new_user = User(names, password)
+    return new_user
+
 
 def create_credentials(username, account, password):
     new_credential = Credentials(username, account, password)
@@ -15,7 +20,6 @@ def create_credentials(username, account, password):
 
 
 def main():
-
     print("************PASSWORD LOCKER**************")
     """
     loop to continually ask for input until it breaks
@@ -53,9 +57,10 @@ def main():
                                 break
                             elif code == "1":
                                 account = input("Enter account name to store")
-                                account_password = ("Enter your " + account + "\'s password")
-
-
+                                account_password = input("Enter your " + account + "\'s password")
+                                Credentials.save_credential(create_credentials(who.names, account, account_password))
+                                for site in Credentials.credentials:
+                                    print(site.account)
 
                     else:
                         print("wrong login credentials")

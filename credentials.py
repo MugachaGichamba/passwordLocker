@@ -1,7 +1,7 @@
 class Credentials:
     credentials = []
 
-    def __init__(self, username, credential_name, password):
+    def __init__(self, username, account, password):
         """
         constructor for credential class
         :param username:
@@ -9,7 +9,7 @@ class Credentials:
         :param password:
         """
         self.username = username
-        self.credential_name = credential_name
+        self.account = account
         self.password = password
 
     def save_credential(self):
