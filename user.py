@@ -6,6 +6,11 @@ class User:
     users = []
 
     def __init__(self, names,  password ):
+        """
+        constructor for users
+        :param names:
+        :param password:
+        """
         self.names = names
         self.password = password
 

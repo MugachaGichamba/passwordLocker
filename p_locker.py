@@ -16,6 +16,13 @@ def create_user(names, password):
 
 
 def create_credentials(username, account, password):
+    """
+    function to create credentials object
+    :param username:
+    :param account:
+    :param password:
+    :return:
+    """
     new_credential = Credentials(username, account, password)
     return new_credential
 
@@ -100,6 +107,8 @@ def main():
         else:
             print("Please enter a valid input")
 
-
+"""
+to run this as the main script
+"""
 if __name__ == '__main__':
     main()
