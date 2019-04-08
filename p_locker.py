@@ -50,7 +50,7 @@ def main():
                         print("logged in successfully")
                         print("welcome " + who.names + "\n Please choose an option below")
                         while True:
-                            print('1 store existing credentials \n2 Create new credentials \nX to Exit')
+                            print('1 store existing credentials \n2 Create new account credentials \nX to Exit')
                             print("")
                             code = input("Enter code to continue")
                             if code == "X":
@@ -59,8 +59,11 @@ def main():
                                 account = input("Enter account name to store")
                                 account_password = input("Enter your " + account + "\'s password")
                                 Credentials.save_credential(create_credentials(who.names, account, account_password))
-                                for site in Credentials.credentials:
-                                    print(site.account)
+                                print(f"Successfully saved {account} to credentials database")
+                            elif code == "2":
+                                new_account = input("Enter new account name to register:")
+                                new_password = input("enter new account password:\n"
+                                                     "LEAVE BLANK IF YOU WANT THE SYSTEM TO GENERATE A PASSWORD FOR YOU")
 
                     else:
                         print("wrong login credentials")
